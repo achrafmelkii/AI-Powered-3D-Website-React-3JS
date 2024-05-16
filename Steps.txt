@@ -1,0 +1,12 @@
+npm create vite@latest -- --Template react client
+
+react 
+javascript
+
+cd client 
+npm install three @react-three/fiber @react-three/drei math valtio react-color framer-motion
+#Valtio provides a proxy interface that can be used to store some values and sync with atoms in Jotai. This only uses the vanilla api of valtio.
+
+#Tailwind CSS is a popular utility-first CSS framework that allows you to create modern, responsive web designs with ease.
+npm install -D tailwindcss 
+npx tailwindcss init -p
