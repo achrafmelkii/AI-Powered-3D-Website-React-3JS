@@ -7,7 +7,7 @@ function App() {
 
   return (
    <main className="app transition-all ease-in">
-    <h1 className="head-text">Hello</h1>
+    <h1 className="head-text">APP</h1>
     <Home/>
     <Canvas/>
     <Customiser/>

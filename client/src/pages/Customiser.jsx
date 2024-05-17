@@ -16,15 +16,63 @@ import { AIPicker,ColorPicker,CustomButton,Tab,filepicker  } from '../components
 const Customiser = () => {
   const snap = useSnapshot(state);
   return (
-    <animationPresence>
+    <AnimatePresence>
       {!snap.intro &&(
         <>
-        costumiser
+          <motion.div  
+            key= "Custom"
+            className='absolute top-0 left-0 z-9'
+            {...slideAnimation('left')}>
+
+          <div className="flex items-center min-h-screen">
+            <div className="editortabs-container tabs">
+              {EditorTabs.map((tab)=>(
+               <Tab 
+                    key={tab.name}
+                    tab={tab}
+                    handleClick={() => setActiveEditorTab(tab.name)}
+                  />
+
+              ))}
+            </div>
+          </div>
+           </motion.div>
+          
+
+          <motion.div  
+              key= "Custom"
+              className='absolute top-10 right-5 z-10'
+               {...fadeAnimation}>
+
+              <CustomButton 
+                  type="filled"
+                  title="Go Back"
+                  handleClick={() => state.intro = true}
+                  customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+                />
+                
+          </motion.div>
+
+             <motion.div
+            className='filtertabs-container'
+            {...slideAnimation("up")}
+          >
+            {FilterTabs.map((tab) => (
+              <Tab
+                key={tab.name}
+                tab={tab}
+                isFilterTab
+                //isActiveTab={activeFilterTab[tab.name]}
+                isActiveTab=""
+                handleClick={() => handleActiveFilterTab(tab.name)}
+              />
+            ))}
+          </motion.div>
         
         </>
 
       )}
-    </animationPresence>
+    </AnimatePresence>
   )
 }
 
